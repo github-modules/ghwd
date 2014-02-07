@@ -12,6 +12,7 @@
     "shortcut",
     "bash"
   ],
+  "repository": "https://github.com/zeke/ghwd",
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com/)",
   "license": "ISC",
   "bin": "./bin/ghwd",
