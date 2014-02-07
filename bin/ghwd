@@ -31,6 +31,7 @@ url="$base_url/tree/$branch$relative_path"
 
 echo $url
 
+# mac and linux-compatible open
 open=open
 command -v xdg-open && open=xdg-open
 $open $url

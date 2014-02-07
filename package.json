@@ -1,6 +1,6 @@
 {
   "name": "ghwd",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Open the github URL that matches your shell's current branch and working directory",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
