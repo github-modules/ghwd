@@ -14,11 +14,10 @@ npm install ghwd --global
 cd myapp
 git checkout mybranch
 cd some/dir
+
 ghwd
+# https://github.com/bozo/myapp/tree/mybranch/some/dir
+
+ghwd foo.js
+# https://github.com/bozo/myapp/tree/mybranch/some/dir/foo.js
 ```
-
-Yay! Your browser just opened and you're looking at https://github.com/me/appy/tree/mybranch/some/dir
-
-## Caveats
-
-You gotta be using https URLs in your `.git/config`. git:// URLs won't work.
