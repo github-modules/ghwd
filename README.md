@@ -4,13 +4,13 @@ Open the github URL that matches your shell's current branch and working directo
 
 ## Install it
 
-```
+```sh
 npm install ghwd --global
 ```
 
 ## Use it
 
-```
+```sh
 cd myapp
 git checkout mybranch
 cd some/dir
