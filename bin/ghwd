@@ -30,4 +30,7 @@ branch=${git_where#refs\/heads\/}
 url="$base_url/tree/$branch$relative_path"
 
 echo $url
-open $url
+
+open=open
+command -v xdg-open && open=xdg-open
+$open $url
