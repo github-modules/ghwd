@@ -1,0 +1,19 @@
+{
+  "name": "ghwd",
+  "version": "0.1.0",
+  "description": "Open the github URL that matches your shell's current branch and working directory",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "github",
+    "repo",
+    "productivity",
+    "shortcut",
+    "bash"
+  ],
+  "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com/)",
+  "license": "ISC",
+  "bin": "./bin/ghwd",
+  "preferGlobal": true
+}
