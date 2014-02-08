@@ -21,3 +21,9 @@ ghwd
 ghwd foo.js
 # https://github.com/bozo/myapp/tree/mybranch/some/dir/foo.js
 ```
+
+## Use it faster
+
+```sh
+alias g=ghwd
+```
