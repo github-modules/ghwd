@@ -1,6 +1,6 @@
 # ghwd
 
-Open the github URL that matches your shell's current branch and working directory
+Open the GitHub URL that matches your shell's current branch and working directory
 
 ## Install it
 
@@ -24,6 +24,8 @@ ghwd foo.js
 
 ## Use it faster
 
+A `g` alias is created automatically to save you three keystrokes:
+
 ```sh
-alias g=ghwd
+g foo.js
 ```

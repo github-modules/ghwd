@@ -1,10 +1,7 @@
 {
   "name": "ghwd",
-  "version": "0.1.4",
-  "description": "Open the github URL that matches your shell's current branch and working directory",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "0.1.5",
+  "description": "Open the GitHub URL that matches your shell's current branch and working directory",
   "keywords": [
     "github",
     "repo",
@@ -15,6 +12,9 @@
   "repository": "https://github.com/zeke/ghwd",
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com/)",
   "license": "ISC",
-  "bin": "./bin/ghwd",
+  "bin": {
+    "ghwd": "./bin/ghwd",
+    "g": "./bin/ghwd"
+  },
   "preferGlobal": true
 }
