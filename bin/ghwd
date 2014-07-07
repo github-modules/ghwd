@@ -12,7 +12,7 @@ base_url=${base_url//git:\/\/github\.com/https:\/\/github\.com\/}
 
 # Find current directory relative to .git parent
 full_path=$(pwd)
-git_base_path=$(git rev-parse --show-toplevel)
+git_base_path=$(cd ./$(git rev-parse --show-cdup); pwd)
 relative_path=${full_path#$git_base_path} # remove leading git_base_path from working directory
 
 # If filename argument is present, append it
