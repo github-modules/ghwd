@@ -34,4 +34,7 @@ echo $url
 # mac and linux-compatible open
 open=open
 command -v xdg-open && open=xdg-open
+#windows compatible fallback
+command -v start && open=start
+
 $open $url
