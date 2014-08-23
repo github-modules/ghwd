@@ -29,3 +29,11 @@ A `g` alias is created automatically to save you three keystrokes:
 ```sh
 g foo.js
 ```
+
+## System Requirements
+
+Requires the `bash` shell to run. Supports Mac, Linux, Cygwin and Windows *by searching for one of the following openers, so other OSs may be supported as well: `xdg-open`, `open`,`cygstart`,`start`*.
+
+## License
+
+[ISC](http://opensource.org/licenses/ISC)
