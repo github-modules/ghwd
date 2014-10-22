@@ -1,6 +1,6 @@
 # ghwd
 
-A simple command to open a GitHub URL in your browser that matches your 
+A simple command to open a GitHub URL in your browser that matches your
 shell's current branch and working directory. Supports Mac, Linux, Cygwin
 and Windows.
 
@@ -46,3 +46,5 @@ like this one, in addition to a number of other features.
 ## License
 
 [ISC](http://opensource.org/licenses/ISC)
+
+![octobiwan](octobiwan.jpg)
