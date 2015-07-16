@@ -1,6 +1,6 @@
 {
   "name": "ghwd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Open the GitHub URL that matches your shell's current branch and working directory",
   "keywords": [
     "github",
@@ -16,5 +16,6 @@
     "ghwd": "./bin/ghwd",
     "g": "./bin/ghwd"
   },
-  "preferGlobal": true
+  "preferGlobal": true,
+  "scripts": {}
 }
