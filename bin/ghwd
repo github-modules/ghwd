@@ -44,4 +44,4 @@ for opener in xdg-open open cygstart "start"; {
   fi
 }
 
-$open $url || echo "Unrecognized OS: Expected to find one of the following launch commands: xdg-open, open, cygstart, start" && exit 1;
+$open $url || (echo "Unrecognized OS: Expected to find one of the following launch commands: xdg-open, open, cygstart, start" && exit 1);
