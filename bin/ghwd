@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
-
+arg=$1
+remote=${arg:-origin}
 # Figure out github repo base URL
-base_url=$(git config --get remote.origin.url)
+if ! git remote | grep -q "$arg" ; then
+  remote="origin"
+fi
+base_url=$(git config --get remote.$remote.url)
 base_url=${base_url%\.git} # remove .git from end of string
 
 # Fix git@github.com: URLs
@@ -19,8 +23,13 @@ git_base_path=$(cd ./$(git rev-parse --show-cdup); pwd)
 relative_path=${full_path#$git_base_path} # remove leading git_base_path from working directory
 
 # If filename argument is present, append it
-if [ $1 ]; then
+if [ $1 ] && [ $remote != $1 ]; then
   relative_path="$relative_path/$1"
+fi
+
+# If we have an origin and a filename, append it
+if [ $1 ] && [ $1 == $remote ] && [ $2 ]; then
+  relative_path="$relative_path/$2"
 fi
 
 # Figure out current git branch
