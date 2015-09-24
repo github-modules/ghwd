@@ -19,7 +19,7 @@ git_base_path=$(cd ./$(git rev-parse --show-cdup); pwd)
 relative_path=${full_path#$git_base_path} # remove leading git_base_path from working directory
 
 # If filename argument is present, append it
-if [ $1 ]; then
+if [ "$1" ]; then
   relative_path="$relative_path/$1"
 fi
 
@@ -38,10 +38,10 @@ echo $url
 # Check for various OS openers. Quit was soon as we find one that works.
 # Don't assume this will work-  rovide a helpful diagnostic if it fails.
 for opener in xdg-open open cygstart "start"; {
-  if command -v $opener; then 
+  if command -v $opener; then
     open=$opener;
     break;
   fi
 }
 
-$open $url || (echo "Unrecognized OS: Expected to find one of the following launch commands: xdg-open, open, cygstart, start" && exit 1);
+$open "$url" || (echo "Unrecognized OS: Expected to find one of the following launch commands: xdg-open, open, cygstart, start" && exit 1);
