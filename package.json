@@ -1,6 +1,6 @@
 {
   "name": "ghwd",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Open the GitHub URL that matches your shell's current branch and working directory. Works for BitBucket and GitLab too.",
   "keywords": [
     "github",
