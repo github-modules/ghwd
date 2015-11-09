@@ -13,6 +13,9 @@ base_url=${base_url//git:\/\/github\.com/https:\/\/github\.com\/}
 # Fix git@bitbucket.org: URLs
 base_url=${base_url//git@bitbucket.org:/https:\/\/bitbucket\.org\/}
 
+# Fix git@gitlab.com: URLs
+base_url=${base_url//git@gitlab\.com:/https:\/\/gitlab\.com\/}
+
 # Find current directory relative to .git parent
 full_path=$(pwd)
 git_base_path=$(cd ./$(git rev-parse --show-cdup); pwd)
