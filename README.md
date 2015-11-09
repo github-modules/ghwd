@@ -1,8 +1,10 @@
 # ghwd
 
-A simple command to open a GitHub URL in your browser that matches your
-shell's current branch and working directory. Supports Mac, Linux, Cygwin
-and Windows.
+A shell command to open a git URL in your browser that matches your
+shell's current branch and working directory. Works for GitHub,
+BitBucket, and GitLab repositories.
+
+Runs on Mac, Linux, Cygwin, and Windows.
 
 ## Install it
 
@@ -34,11 +36,13 @@ g foo.js
 
 ## System Requirements
 
-Requires the `bash` shell to run. Supports Mac, Linux, Cygwin and Windows *by
-searching for one of the following openers, so other OSs may be supported as
-well: `xdg-open`, `open`,`cygstart`,`start`*.
+Requires the `bash` or `zsh` shell to run. Supports Mac, Linux, Cygwin and Windows by
+searching for one of the following openers: `xdg-open`, `open`,`cygstart`,`start`.
 
-It supports following providers:
+## Providers
+
+`ghwd` supports git repos from the following providers:
+
 - [github.com](https://github.com) ssh, https and `git:` remotes
 - [bitbucket.org](https://bitbucket.org) ssh and https remotes
 - [gitlab.com](https://gitlab.com) ssh and https remotes
