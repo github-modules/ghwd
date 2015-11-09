@@ -38,8 +38,8 @@ url="$base_url/$tree/$branch$relative_path"
 
 echo $url
 
-# Check for various OS openers. Quit was soon as we find one that works.
-# Don't assume this will work-  rovide a helpful diagnostic if it fails.
+# Check for various OS openers. Quit as soon as we find one that works.
+# Don't assume this will work, provide a helpful diagnostic if it fails.
 for opener in xdg-open open cygstart "start"; {
   if command -v $opener; then
     open=$opener;

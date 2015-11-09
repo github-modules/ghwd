@@ -34,7 +34,14 @@ g foo.js
 
 ## System Requirements
 
-Requires the `bash` shell to run. Supports Mac, Linux, Cygwin and Windows *by searching for one of the following openers, so other OSs may be supported as well: `xdg-open`, `open`,`cygstart`,`start`*.
+Requires the `bash` shell to run. Supports Mac, Linux, Cygwin and Windows *by
+searching for one of the following openers, so other OSs may be supported as
+well: `xdg-open`, `open`,`cygstart`,`start`*.
+
+It supports following providers:
+- [github.com](https://github.com) ssh, https and `git:` remotes
+- [bitbucket.org](https://bitbucket.org) ssh and https remotes
+- [gitlab.com](https://gitlab.com) ssh and https remotes
 
 ## See Also
 
