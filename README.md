@@ -1,4 +1,5 @@
-# ghwd
+# ghwd [![ISC License](https://img.shields.io/badge/license-ISC-blue.svg)](http://opensource.org/licenses/ISC)
+
 
 A shell command to open a git URL in your browser that matches your
 shell's current branch and working directory. Works for GitHub,
@@ -53,9 +54,5 @@ If you are interested in further integration between your shell and Github,
 check out the [hub](https://github.com/github/hub/) project. It adds a [git
 browse](https://github.com/github/hub/#git-browse) command which works much
 like this one, in addition to a number of other features.
-
-## License
-
-[ISC](http://opensource.org/licenses/ISC)
 
 ![octobiwan](octobiwan.jpg)
