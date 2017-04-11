@@ -16,6 +16,11 @@ base_url=${base_url//git@bitbucket.org:/https:\/\/bitbucket\.org\/}
 # Fix git@gitlab.com: URLs
 base_url=${base_url//git@gitlab\.com:/https:\/\/gitlab\.com\/}
 
+# Fix on premises URLs
+hostname=`echo $base_url | sed -e "s/[^/]*\/\/\([^@]*@\)\?\([^:/]*\).*/\2/"`
+namespace_and_project=`echo $base_url | cut -d/ -f4,5`
+base_url="http://$hostname/$namespace_and_project"
+
 # Validate that this folder is a git folder
 git branch 2>/dev/null 1>&2
 if [ $? -ne 0 ]; then
@@ -47,7 +52,7 @@ echo $url
 
 # Check for various OS openers. Quit as soon as we find one that works.
 # Don't assume this will work, provide a helpful diagnostic if it fails.
-for opener in xdg-open open cygstart "start"; {
+for opener in xdg-open open cygstart start; {
   if command -v $opener; then
     open=$opener;
     break;
