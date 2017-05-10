@@ -28,8 +28,11 @@ full_path=$(pwd)
 git_base_path=$(cd ./$(git rev-parse --show-cdup); pwd)
 relative_path=${full_path#$git_base_path} # remove leading git_base_path from working directory
 
+# -b = open base url (useful for PRs)
+if [ "$1" = "-b" ]; then
+  relative_path=""
 # If filename argument is present, append it
-if [ "$1" ]; then
+elif [ "$1" ]; then
   relative_path="$relative_path/$1"
 fi
 
