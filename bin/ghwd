@@ -50,7 +50,7 @@ echo "$url"
 # Check for various OS openers. Quit as soon as we find one that works.
 # Don't assume this will work, provide a helpful diagnostic if it fails.
 for opener in xdg-open open cygstart "start"; {
-  if command -v $opener; then
+  if command -v $opener &>/dev/null; then
     open=$opener;
     break;
   fi
