@@ -1,22 +1,15 @@
 #!/usr/bin/env bash
 
-declare version="1.1.2"
-
 usage() {
 	printf '%s\n%s\n' \
 		'usage '"`basename "${1:-ghwd}"`"' -- open git URL in browser matching current branch and working directory' \
 		'ghwd [-rsvVh]' 
 	exit 64;
 }
-version() {
-	printf '%s\n' "`basename "${1:-ghwd}"`"' version '"$version"''
-	exit 0;
-}
-
 declare verbosity=1 #defaults to verbose
 declare f_return_only=0
 
-while getopts ":rsvVh" opt "$@"; do
+while getopts ":rsvh" opt "$@"; do
 	case "$opt" in
 		(r)
 			#return mode returns the url, but does not open it
@@ -27,10 +20,7 @@ while getopts ":rsvVh" opt "$@"; do
 			verbosity=0
 			;;
 		(v)
-			verbosity=1
-			;;
-		(V)
-			version
+			let "++verbosity"
 			;;
 		(h)
 			usage
