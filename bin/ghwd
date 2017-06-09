@@ -62,7 +62,7 @@ base_url=${base_url//git@gitlab\.com:/https:\/\/gitlab\.com\/}
 # Validate that this folder is a git folder
 git branch 2>/dev/null 1>&2
 if [ $? -ne 0 ]; then
-  echo "Not a git repo!"
+  echo "Not a git repo!" >&2
   exit $?
 fi
 
