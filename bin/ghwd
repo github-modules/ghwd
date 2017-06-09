@@ -3,7 +3,7 @@
 usage() {
 	printf '%s\n%s\n' \
 		'usage '"`basename "${1:-ghwd}"`"' -- open git URL in browser matching current branch and working directory' \
-		'ghwd [-rsvVh]' 
+		'ghwd [-rsvh] [file]' 
 	exit 64;
 }
 declare verbosity=1 #defaults to verbose
