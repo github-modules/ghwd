@@ -5,7 +5,7 @@ declare version="1.1.2"
 usage() {
 	printf '%s\n%s\n' \
 		'usage '"`basename "${1:-ghwd}"`"' -- open git URL in browser matching current branch and working directory' \
-		'ghwd [-svVh]' 
+		'ghwd [-rsvVh]' 
 	exit 64;
 }
 version() {
@@ -14,9 +14,15 @@ version() {
 }
 
 declare verbosity=1 #defaults to verbose
+declare f_return_only=0
 
-while getopts ":svVh" opt "$@"; do
+while getopts ":rsvVh" opt "$@"; do
 	case "$opt" in
+		(r)
+			#return mode returns the url, but does not open it
+			verbosity=1
+			f_return_only=1
+			;;
 		(s)
 			verbosity=0
 			;;
@@ -93,6 +99,8 @@ for opener in xdg-open open cygstart "start"; {
   fi
 }
 
-$open "$url" || (echo "Unrecognized OS: Expected to find one of the following launch commands: xdg-open, open, cygstart, start" && exit 1);
+if [ $f_return_only -ne 1 ]; then
+	$open "$url" || { echo "Unrecognized OS: Expected to find one of the following launch commands: xdg-open, open, cygstart, start"; exit 1; }
+fi
 
 # vim: set ts=4 sw=4 noexpandtab:
