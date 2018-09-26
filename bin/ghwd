@@ -2,19 +2,26 @@
 
 # Figure out github repo base URL
 base_url=$(git config --get remote.origin.url)
-base_url=${base_url%\.git} # remove .git from end of string
 
-# Fix git@github.com: URLs
-base_url=${base_url//git@github\.com:/https:\/\/github\.com\/}
+# Handle no remotes named origin
+# Return the first remote available
+if [[ ! "$base_url" ]]; then
+  remote=$(git remote | tail -n 1)
+  if [[ -z "$remote" ]]; then
+    echo "No remotes available"
+    exit 1
+  fi
+  base_url=$(git config --get "remote.${remote}.url")
+fi
 
-# Fix git://github.com URLS
-base_url=${base_url//git:\/\/github\.com/https:\/\/github\.com\/}
-
-# Fix git@bitbucket.org: URLs
-base_url=${base_url//git@bitbucket.org:/https:\/\/bitbucket\.org\/}
-
-# Fix git@gitlab.com: URLs
-base_url=${base_url//git@gitlab\.com:/https:\/\/gitlab\.com\/}
+# Translate remote to working URL
+if [[ "$base_url" != https://* ]]; then
+  base_url="${base_url#ssh://}"  # remove ssh://
+  base_url="${base_url#git@}"    # remove git@
+  base_url="${base_url/:/\/}"    # replace : with /
+  base_url=${base_url%\.git}     # remove .git from end of string
+  base_url="https://${base_url}" # resolve to HTTPS
+fi
 
 # Validate that this folder is a git folder
 git branch 2>/dev/null 1>&2
