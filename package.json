@@ -20,5 +20,7 @@
     "g": "./bin/ghwd"
   },
   "preferGlobal": true,
-  "scripts": {}
+  "scripts": {
+    "test": "echo yolo"
+  }
 }
