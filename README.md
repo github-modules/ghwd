@@ -34,6 +34,10 @@ A `g` alias is created automatically to save you three keystrokes:
 g foo.js
 ```
 
+## Other Options
+
+`ghwd` also has -r, -s, and -v options that are described in the manpage.
+
 ## System Requirements
 
 Requires the `bash` or `zsh` shell to run. Supports Mac, Linux, Cygwin and Windows by

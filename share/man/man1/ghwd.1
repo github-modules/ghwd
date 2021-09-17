@@ -1,0 +1,42 @@
+\" ghwd.1 manpage
+.Dd 11 June 2017
+.Dr GHWD 1
+.Os UNIX
+.Sh NAME
+.Nm ghwd
+.Nd open the current directory's git URL in the browser
+.Sh SYNOPSIS
+.Nm
+.Op Fl rsvh
+.Op Ar file
+.Sh DESCRIPTION
+The shell script
+.Nm
+opens the current git branch and directory in the browser.
+Works for GitHub, BitBucket, and GitLab repositories.
+You can alternatively specify a file, and 
+.Nm
+opens it specifically in the browser.
+Installing 
+.Nm
+also installs an alias so you can use the command by simply typing ``g''.
+.Sh OPTIONS
+.Bl -hang
+.It Sy Fl r ,
+Simply returns the URL that would have been opened, instead of opening it.
+Mostly intended for debugging and use in other shell scripts.
+.It Sy Fl s ,
+Silently opens the URL without printing it to the terminal.
+Added for increased incorporability with shell scripts.
+.It Sy Fl v ,
+Every verbose flag increases the verbosity of 
+.Nm .
+.It Sy Fl h ,
+Displays the usage information.
+.Sh AUTHOR
+ghwd was created by
+.An Zeke Sikelianos
+.Sh CONTACT
+.Aq zeke@sikelianos.com .
+.Sh VERSION
+version 1.1.3 \(em 11 Jun 2017
