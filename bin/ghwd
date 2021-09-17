@@ -1,8 +1,30 @@
 #!/usr/bin/env bash
 
+# Try to find an OS opener and use it to open the given URL.
+open_url() {
+  echo $1
+
+  # Check for various OS openers. Quit as soon as we find one that works.
+  # Don't assume this will work, provide a helpful diagnostic if it fails.
+  for opener in xdg-open open cygstart "start"; {
+    if command -v $opener; then
+      open=$opener;
+      break;
+    fi
+  }
+
+  $open "$1" || (echo "Unrecognized OS: Expected to find one of the following launch commands: xdg-open, open, cygstart, start" && exit 1);
+  exit 0
+}
+
 # Figure out github repo base URL
 base_url=$(git config --get remote.origin.url)
-base_url=${base_url%\.git} # remove .git from end of string
+
+# Check if repo is a wiki
+[[ $base_url == *github*.wiki.git ]] && wiki=true || wiki=false
+
+# Remove .git from end of string
+base_url=${base_url%\.git}
 
 # Fix git@github.com: URLs
 base_url=${base_url//git@github\.com:/https:\/\/github\.com\/}
@@ -22,6 +44,9 @@ if [ $? -ne 0 ]; then
   echo Not a git repo!
   exit $?
 fi
+
+# Stop right here if it's a wiki, no need to go further
+[[ $wiki = true ]] && open_url ${base_url/%\.wiki/\/wiki}
 
 # Find current directory relative to .git parent
 full_path=$(pwd)
@@ -46,15 +71,4 @@ branch="${branch%^0}"
 [[ $base_url == *bitbucket* ]] && tree="src" || tree="tree"
 url="$base_url/$tree/$branch$relative_path"
 
-echo "$url"
-
-# Check for various OS openers. Quit as soon as we find one that works.
-# Don't assume this will work, provide a helpful diagnostic if it fails.
-for opener in xdg-open open cygstart "start"; {
-  if command -v $opener; then
-    open=$opener;
-    break;
-  fi
-}
-
-$open "$url" || (echo "Unrecognized OS: Expected to find one of the following launch commands: xdg-open, open, cygstart, start" && exit 1);
+open_url $url
