@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Figure out github repo base URL
-base_url=$(git config --get remote.origin.url)
+base_url=$(git remote get-url origin)
 base_url=${base_url%\.git} # remove .git from end of string
 
 # Fix git@github.com: URLs
