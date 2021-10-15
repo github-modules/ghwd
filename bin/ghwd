@@ -4,17 +4,15 @@
 base_url=$(git config --get remote.origin.url)
 base_url=${base_url%\.git} # remove .git from end of string
 
-# Fix git@github.com: URLs
-base_url=${base_url//git@github\.com:/https:\/\/github\.com\/}
-
 # Fix git://github.com URLS
 base_url=${base_url//git:\/\/github\.com/https:\/\/github\.com\/}
 
-# Fix git@bitbucket.org: URLs
-base_url=${base_url//git@bitbucket.org:/https:\/\/bitbucket\.org\/}
-
-# Fix git@gitlab.com: URLs
-base_url=${base_url//git@gitlab\.com:/https:\/\/gitlab\.com\/}
+# Fix git@<domain>: URLs
+if [[ ${base_url} =~ ^git@.* ]];
+then
+    base_url=${base_url/:/\/}
+    base_url=${base_url/git@/https:\/\/}
+fi
 
 # Validate that this folder is a git folder
 git branch 2>/dev/null 1>&2
